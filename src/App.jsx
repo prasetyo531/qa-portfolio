@@ -1,6 +1,6 @@
-import Header from './components/Header'
-import Section from './components/Section'
-import Experience from './components/Experience'
+import Header from "./components/Header";
+import Section from "./components/Section";
+import Experience from "./components/Experience";
 
 export default function App() {
   return (
@@ -8,8 +8,9 @@ export default function App() {
       <Header />
 
       <Section title="Profile">
-        QA Engineer with 10 years of experience in fintech, e-commerce, and payment
-        platforms. Strong in test strategy, automation framework design, and CI/CD.
+        QA Engineer with 10 years of experience in fintech, e-commerce, and
+        payment platforms. Strong in test strategy, automation framework design,
+        and CI/CD.
       </Section>
 
       <Section title="Skills">
@@ -30,7 +31,9 @@ export default function App() {
         Bachelor of Computer Science – Universitas Gunadarma (GPA 3.23)
       </Section>
 
-      <footer>© 2026 Prasetyo Putra — Senior QA Engineer</footer>
+      <footer className="footer">
+        © 2026 Prasetyo Putra — Senior QA Engineer
+      </footer>
     </div>
-  )
+  );
 }
