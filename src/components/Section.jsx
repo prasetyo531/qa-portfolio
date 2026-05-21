@@ -1,8 +1,8 @@
-export default function Section({ title, children }) {
+export default function Section({ id, title, children }) {
   return (
-    <section>
+    <section className="resume-section" id={id}>
       <h2>{title}</h2>
-      {children}
+      <div className="resume-section__content">{children}</div>
     </section>
   );
 }
