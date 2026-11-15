@@ -1,8 +1,16 @@
-export default function Section({ id, title, children }) {
+export default function Section({ id, kicker, title, intro, className = "", children }) {
   return (
-    <section className="resume-section" id={id}>
-      <h2>{title}</h2>
-      <div className="resume-section__content">{children}</div>
+    <section
+      className={`content-section ${className}`.trim()}
+      id={id}
+      aria-labelledby={`${id}-title`}
+    >
+      <div className="section-heading">
+        {kicker && <p className="eyebrow">{kicker}</p>}
+        <h2 id={`${id}-title`}>{title}</h2>
+        {intro && <p className="section-intro">{intro}</p>}
+      </div>
+      {children}
     </section>
   );
 }

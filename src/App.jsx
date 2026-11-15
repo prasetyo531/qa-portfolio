@@ -1,98 +1,272 @@
+import { useState } from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Experience from "./components/Experience";
 
+const skillGroups = [
+  {
+    title: "Strategy and delivery",
+    description: "Structured planning that keeps product goals, risks, and quality visible.",
+    skills: ["Requirement analysis", "Test planning", "Resource estimation", "QA monitoring & control", "Risk management"],
+  },
+  {
+    title: "UI and mobile automation",
+    description: "Automation coverage across web and mobile products.",
+    skills: ["Playwright", "Cypress", "Appium", "Selenium", "XCUITest", "UFT/QTP"],
+  },
+  {
+    title: "API quality",
+    description: "Service-level checks that support dependable product releases.",
+    skills: ["REST Assured", "Mocha", "Chai"],
+  },
+  {
+    title: "Performance and CI/CD",
+    description: "Performance coverage and automated checks inside delivery pipelines.",
+    skills: ["k6", "Jenkins", "GitLab CI"],
+  },
+];
+
+const highlights = [
+  {
+    number: "01",
+    title: "End-to-end automation",
+    text: "Designed and implemented a UI automation framework for multiple projects.",
+    tags: ["Playwright", "Web", "Test framework"],
+  },
+  {
+    number: "02",
+    title: "Performance testing",
+    text: "Designed a k6 framework aligned with project objectives, and planned, managed, and verified test goals across multiple projects.",
+    tags: ["k6", "Test planning", "Risk management"],
+  },
+  {
+    number: "03",
+    title: "B2B API automation",
+    text: "Migrated the B2B API test framework to Playwright, cutting each suite's execution time by 10%.",
+    tags: ["Playwright", "Mocha", "GitLab CI"],
+  },
+  {
+    number: "04",
+    title: "Automation-first strategy",
+    text: "Increased test coverage and reduced regression time by 15% through an automation-first approach.",
+    tags: ["Test strategy", "Appium", "Jenkins"],
+  },
+];
+
+const profileLinks = [
+  { label: "GitHub", href: "https://github.com/prasetyo531", symbol: "GH" },
+  { label: "GitLab", href: "https://gitlab.com/prasetyo531", symbol: "GL" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/prasetyo-putra-423608b8/", symbol: "in" },
+  { label: "Medium", href: "https://medium.com/@prasetyoputra", symbol: "M" },
+  { label: "Email", href: "mailto:prasetyo531@gmail.com", symbol: "@" },
+  { label: "Grafana", href: "https://przgrafana.duckdns.org/login-", symbol: "↗" },
+];
+
 export default function App() {
+  const [theme, setTheme] = useState("light");
+
   return (
-    <div className="page-shell">
-      <header className="topbar no-print">
-        <div className="topbar__inner">
-          <div className="topbar__brand">Prasetyo Putra</div>
-          <nav className="topbar__nav" aria-label="Primary">
-            <a href="#top">Home</a>
-            <a href="#resume" className="is-active">
-              Resume
-            </a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-      </header>
+    <div className="site-shell" data-theme={theme}>
+      <Header theme={theme} onToggleTheme={() => setTheme(theme === "light" ? "dark" : "light")} />
 
-      <main className="resume-page print-container" id="top">
-        <Header />
-
-        <Section title="Links">
-          <p className="links-row">
-            <a href="https://github.com/prasetyo531">
-              https://github.com/prasetyo531
-            </a>
-            <span>, </span>
-            <a href="https://www.linkedin.com/in/prasetyo-putra-423608b8/">
-              Linkedin
-            </a>
-          </p>
-        </Section>
-
-        <Section title="Profile">
-          <p>
-            I am a Test Engineering professional with a decade of experience
-            across fintech, e-commerce, and payment platforms. As a QA Lead, I
-            bridge the gap between technical execution and project management.
-            My core focus lies in analyzing complex requirements, crafting
-            realistic test plans, and actively monitoring project health to
-            ensure smooth releases. While I have a deep technical background in
-            building automation frameworks (Playwright, Cypress, Appium) and
-            CI/CD pipelines.
-          </p>
-        </Section>
-
-        <Section id="resume" title="Professional Experience">
-          <Experience />
-        </Section>
-
-        <Section title="Education">
-          <article className="resume-entry">
-            <div className="resume-entry__header">
-              <h3>Bachelor&apos;s Degree, Universitas Gunadarma</h3>
-              <span>Jun 2010 — Jan 2015</span>
+      <main>
+        <section className="hero" id="home" aria-labelledby="hero-title">
+          <div className="hero-glow hero-glow-blue" />
+          <div className="hero-glow hero-glow-gold" />
+          <div className="hero-inner">
+            <div className="portrait-mark" aria-label="Prasetyo Putra initials">
+              <span className="portrait-orbit portrait-orbit-one" />
+              <span className="portrait-orbit portrait-orbit-two" />
+              <span className="portrait-dot portrait-dot-one" />
+              <span className="portrait-dot portrait-dot-two" />
+              <span className="portrait-initials">PP</span>
             </div>
-            <p className="resume-entry__subheading">
-              Computer Science / Information Technology | Depok
-            </p>
-            <p>GPA: 3.23</p>
-          </article>
-        </Section>
 
-        <Section id="skills" title="Skills & Certifications">
-          <div className="skill-list">
-            <p>
-              <span>Strategy & Delivery:</span> Requirement Analysis, Test
-              Planning, Resource Estimation, QA Monitoring &amp; Control, Risk
-              Management.
+            <p className="hero-greeting">Hello, I&apos;m Prasetyo. I care about quality.</p>
+            <h1 id="hero-title">
+              Prasetyo <span>Putra</span>
+            </h1>
+            <p className="hero-role">Senior QA Engineer</p>
+            <p className="hero-focus">
+              <span>Test automation</span>
+              <i />
+              <span>Quality strategy</span>
+              <i />
+              <span>CI/CD</span>
             </p>
-            <p>
-              <span>Automation:</span> Playwright, Cypress, Appium, Selenium,
-              Rest Assured.
+            <p className="hero-summary">
+              I build dependable testing for products where quality matters.
             </p>
-            <p>
-              <span>Tooling:</span> Jenkins, GitLab CI, k6, XCUITest, UFT/QTP.
-            </p>
+
+            <div className="hero-links" aria-label="Profile links">
+              {profileLinks.map((link) => (
+                <a
+                  className="icon-link"
+                  href={link.href}
+                  key={link.label}
+                  aria-label={link.label}
+                  title={link.label}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span aria-hidden="true">{link.symbol}</span>
+                </a>
+              ))}
+            </div>
+
+            <a className="scroll-cue" href="#about">
+              More about me <span aria-hidden="true">↓</span>
+            </a>
           </div>
-        </Section>
+          <div className="hero-index" aria-hidden="true">01 / 07</div>
+        </section>
 
+        <div className="page-content">
+          <Section
+            id="about"
+            kicker="A LITTLE ABOUT ME"
+            title="Making quality part of how teams build"
+            intro="A decade in quality engineering across fintech, e-commerce, and payment platforms."
+            className="about-section"
+          >
+            <div className="about-grid">
+              <div className="about-copy">
+                <p>
+                  I&apos;m a Test Engineering professional with a decade of experience across fintech,
+                  e-commerce, and payment platforms. As a QA Lead, I bridge technical execution
+                  with project management and release planning.
+                </p>
+                <p>
+                  I focus on analyzing complex requirements, writing realistic test plans, and
+                  monitoring project health. I also bring hands-on experience building automation
+                  frameworks and CI/CD pipelines, from Playwright and Cypress to Appium.
+                </p>
+              </div>
+              <aside className="fact-card" aria-label="At a glance">
+                <div className="fact-row">
+                  <span className="fact-number">10</span>
+                  <span className="fact-label">years in QA engineering</span>
+                </div>
+                <div className="fact-divider" />
+                <div className="fact-row">
+                  <span className="fact-pin" aria-hidden="true">⌖</span>
+                  <span className="fact-label">Based in Jakarta, Indonesia</span>
+                </div>
+                <div className="fact-divider" />
+                <div className="fact-row">
+                  <span className="fact-spark" aria-hidden="true">✳</span>
+                  <span className="fact-label">Fintech · e-commerce · payments</span>
+                </div>
+              </aside>
+            </div>
+          </Section>
+
+          <Section
+            id="journey"
+            kicker="WHERE I'VE BEEN"
+            title="From hands-on testing to quality leadership"
+            intro="Experience across product testing, automation, project planning, and quality leadership. Open any role for details."
+            className="journey-section"
+          >
+            <Experience />
+          </Section>
+
+          <Section
+            id="skills"
+            kicker="WHAT I WORK WITH"
+            title="Skills and expertise"
+            intro="A practical toolkit across test planning, automation, API quality, performance, and delivery."
+            className="skills-section"
+          >
+            <div className="skills-grid">
+              {skillGroups.map((group, index) => (
+                <article className="skill-card" key={group.title}>
+                  <span className="card-index">0{index + 1}</span>
+                  <h3>{group.title}</h3>
+                  <p>{group.description}</p>
+                  <ul className="tag-list" aria-label={`${group.title} skills`}>
+                    {group.skills.map((skill) => <li key={skill}>{skill}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="highlights"
+            kicker="SELECTED WORK"
+            title="Quality engineering in practice"
+            intro="A few examples of the problems I like solving."
+            className="highlights-section"
+          >
+            <div className="highlight-grid">
+              {highlights.map((item) => (
+                <article className="highlight-card" key={item.number}>
+                  <div className="highlight-topline">
+                    <span className="card-index">{item.number}</span>
+                    <span className="highlight-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                  <ul className="tag-list" aria-label={`${item.title} topics`}>
+                    {item.tags.map((tag) => <li key={tag}>{tag}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="education"
+            kicker="FOUNDATION"
+            title="Learning by building"
+            intro="A computer science foundation, strengthened through years of hands-on product work."
+            className="education-section"
+          >
+            <article className="education-card">
+              <div className="education-mark" aria-hidden="true">UG</div>
+              <div>
+                <p className="education-label">Bachelor&apos;s degree</p>
+                <h3>Computer Science</h3>
+                <p>Computer Science / Information Technology <span>·</span> Depok</p>
+                <p>Universitas Gunadarma <span>·</span> GPA 3.23</p>
+              </div>
+              <span className="education-date">Jun 2010 – Jan 2015</span>
+            </article>
+          </Section>
+
+          <Section
+            id="contact"
+            kicker="LET'S CONNECT"
+            title="Let's talk about building quality"
+            intro="Always glad to talk about testing, automation, and making software more dependable."
+            className="contact-section"
+          >
+            <div className="contact-card">
+              <div>
+                <p className="contact-note">Have a role, collaboration, or interesting problem in mind?</p>
+                <h3>Let&apos;s make the next release a little better.</h3>
+              </div>
+              <a
+                className="contact-button"
+                href="https://www.linkedin.com/in/prasetyo-putra-423608b8/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Connect on LinkedIn <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </Section>
+        </div>
       </main>
 
-      <footer className="footer no-print" id="contact">
-        <div className="footer__inner">
-          <p>© 2026 Prasetyo Putra. Built for ATS readability.</p>
-          <div className="footer__links">
-            <a href="https://www.linkedin.com/in/prasetyo-putra-423608b8/">
-              LinkedIn
-            </a>
-            <a href="mailto:prasetyo531@gmail.com">Email</a>
-            <a href="https://github.com/prasetyo531">GitHub</a>
-          </div>
+      <footer className="site-footer">
+        <a className="footer-brand" href="#home" aria-label="Back to top">PP</a>
+        <span>© 2026 Prasetyo Putra <span className="footer-version">Senior QA Engineer</span></span>
+        <div className="footer-links">
+          {profileLinks.filter((link) => link.label !== "Grafana").map((link) => (
+            <a href={link.href} key={link.label} target="_blank" rel="noreferrer">{link.label}</a>
+          ))}
         </div>
       </footer>
     </div>
