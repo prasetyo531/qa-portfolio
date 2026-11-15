@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Experience from "./components/Experience";
+import BrandIcon from "./components/BrandIcon";
+import Contact from "./components/Contact";
 
 const skillGroups = [
   {
@@ -54,8 +56,8 @@ const highlights = [
 ];
 
 const profileLinks = [
-  { label: "GitHub", href: "https://github.com/prasetyo531", symbol: "GH" },
-  { label: "GitLab", href: "https://gitlab.com/prasetyo531", symbol: "GL" },
+  { label: "GitHub", href: "https://github.com/prasetyo531", icon: "github" },
+  { label: "GitLab", href: "https://gitlab.com/prasetyo531", icon: "gitlab" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/prasetyo-putra-423608b8/", symbol: "in" },
   { label: "Medium", href: "https://medium.com/@prasetyoputra", symbol: "M" },
   { label: "Email", href: "mailto:prasetyo531@gmail.com", symbol: "@" },
@@ -101,15 +103,15 @@ export default function App() {
             <div className="hero-links" aria-label="Profile links">
               {profileLinks.map((link) => (
                 <a
-                  className="icon-link"
+                  className={`icon-link${link.icon ? ` icon-link--${link.icon}` : ""}`}
                   href={link.href}
                   key={link.label}
                   aria-label={link.label}
                   title={link.label}
-                  target="_blank"
-                  rel="noreferrer"
+                  target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={link.href.startsWith("mailto:") ? undefined : "noreferrer"}
                 >
-                  <span aria-hidden="true">{link.symbol}</span>
+                  {link.icon ? <BrandIcon name={link.icon} /> : <span aria-hidden="true">{link.symbol}</span>}
                 </a>
               ))}
             </div>
@@ -235,28 +237,7 @@ export default function App() {
             </article>
           </Section>
 
-          <Section
-            id="contact"
-            kicker="LET'S CONNECT"
-            title="Let's talk about building quality"
-            intro="Always glad to talk about testing, automation, and making software more dependable."
-            className="contact-section"
-          >
-            <div className="contact-card">
-              <div>
-                <p className="contact-note">Have a role, collaboration, or interesting problem in mind?</p>
-                <h3>Let&apos;s make the next release a little better.</h3>
-              </div>
-              <a
-                className="contact-button"
-                href="https://www.linkedin.com/in/prasetyo-putra-423608b8/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Connect on LinkedIn <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </Section>
+          <Contact />
         </div>
       </main>
 
@@ -265,7 +246,14 @@ export default function App() {
         <span>© 2026 Prasetyo Putra <span className="footer-version">Senior QA Engineer</span></span>
         <div className="footer-links">
           {profileLinks.filter((link) => link.label !== "Grafana").map((link) => (
-            <a href={link.href} key={link.label} target="_blank" rel="noreferrer">{link.label}</a>
+            <a
+              href={link.href}
+              key={link.label}
+              target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+              rel={link.href.startsWith("mailto:") ? undefined : "noreferrer"}
+            >
+              {link.label}
+            </a>
           ))}
         </div>
       </footer>
