@@ -1,0 +1,16 @@
+[
+  {
+    "title": "From Zero to a Reproducible AI Testing Part I",
+    "link": "https://medium.com/@prasetyoputra/from-zero-to-a-reproducible-ai-testing-part-i-245f912f1410?source=rss-d8075e9b383a------2",
+    "publishedAt": "2026-10-11T11:59:00.000Z",
+    "excerpt": "In QA, I’m used to tests with predictable outcomes. A checkout either applies the discount or it doesn’t. An API either returns the contract we agreed on or it doesn’t. With an AI…",
+    "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*0wTQPQeuRJ8gK26JTetwew.png"
+  },
+  {
+    "title": "Why Playwright Overtaking Selenium",
+    "link": "https://medium.com/@prasetyoputra/why-playwright-overtaking-selenium-326343fa9c53?source=rss-d8075e9b383a------2",
+    "publishedAt": "2025-09-19T10:24:02.000Z",
+    "excerpt": "Playwright has been buzzing and I’ve noticed while browsing linkedIn and Medium. I’ve had good experiences and context with Selenium and Rest Assured, but Playwright have some key…",
+    "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*8wy2uBInJL5565NgpFSVxg.png"
+  }
+]

@@ -4,6 +4,7 @@ import Section from "./components/Section";
 import Experience from "./components/Experience";
 import BrandIcon from "./components/BrandIcon";
 import Contact from "./components/Contact";
+import MediumArticles from "./components/MediumArticles";
 
 const skillGroups = [
   {
@@ -120,7 +121,7 @@ export default function App() {
               More about me <span aria-hidden="true">↓</span>
             </a>
           </div>
-          <div className="hero-index" aria-hidden="true">01 / 07</div>
+          <div className="hero-index" aria-hidden="true">01 / 08</div>
         </section>
 
         <div className="page-content">
@@ -237,6 +238,7 @@ export default function App() {
             </article>
           </Section>
 
+          <MediumArticles />
           <Contact />
         </div>
       </main>

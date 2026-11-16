@@ -1,5 +1,11 @@
 # React + Vite
 
+## Medium articles
+
+The `writing` section reads the three newest posts from the public Medium RSS feed. Run `npm run sync:medium` before a local production build to refresh `public/medium-posts.json`.
+
+The GitHub Actions workflow syncs the feed and publishes the site when `main` changes, then repeats the sync every 12 hours. It deploys to the existing `gh-pages` branch.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
+    "sync:medium": "node scripts/sync-medium.mjs",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
